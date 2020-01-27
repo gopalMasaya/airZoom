@@ -14,13 +14,13 @@ function search(){
   		  	lat = position.coords.latitude;
   		  	lon = position.coords.longitude;
 
-  		  	const mymap = L.map('mapid').setView([lat,lon], 10);
+  		  	const mymap = L.map('mapid').setView([32.515806,lon], 10);
   		  			 const attribution =
   		  				 '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
   		  			 const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   		  			 const tiles = L.tileLayer(tileUrl, { attribution });
   		  			 tiles.addTo(mymap);
-  		         marker[5] = L.marker([lat,lon]).addTo(mymap);
+  		         marker[5] = L.marker([32.515806,35.007172]).addTo(mymap);
   		         marker[5].bindTooltip("תחנה 1.0").openTooltip();
 
   						 marker[5].on('click', function(ev) {
