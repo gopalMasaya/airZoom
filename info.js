@@ -1,4 +1,5 @@
 function info(){
+ console.log("info");
 let ypos = 240;
 //  https://www.nevo.co.il/law_html/Law01/500_490.htm     maxValues
 //  https://www.sviva.gov.il/subjectsEnv/SvivaAir/Documents/air_np_add.pdf    natinal program
