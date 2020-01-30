@@ -1,11 +1,11 @@
 function search(){
 
 
-  	mmap.style('width','800px')
-  	mmap.style('height','450px')
+  	mmap.style('width','60%')
+  	mmap.style('height','90%')
 
 
-  		if ("geolocation" in navigator) {
+  		if (mapCreated == false) {
 
   		    /* geolocation is available */
   		    console.log("yes")
