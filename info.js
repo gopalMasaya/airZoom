@@ -1,5 +1,6 @@
 function info(){
 let ypos = 240;
+let x = 120
 //  https://www.nevo.co.il/law_html/Law01/500_490.htm     maxValues
 //  https://www.sviva.gov.il/subjectsEnv/SvivaAir/Documents/air_np_add.pdf    natinal program
 fill(40);rect(0,120,width,50)
