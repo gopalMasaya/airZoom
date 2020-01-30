@@ -57,7 +57,9 @@ var sendreq;
 var loginData;
 var loginOn = false;
 var homeTxt;
-var halfScreen = 633;
+var halfScreen = 0;
+var pix;
+
 
 
 
@@ -76,8 +78,11 @@ console.log(homeTxt)
 }
 
 function setup() {
-	createCanvas(windowWidth, windowHeight*3);
-
+ pix = displayDensity()+0.015
+ console.log(pix)
+ createCanvas(displayWidth*pix, displayHeight*3);
+ halfScreen = width/2;
+	
 let month = d.getMonth()
 let day = d.getDate();
 let year = d.getFullYear();
