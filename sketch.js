@@ -57,7 +57,10 @@ var sendreq;
 var loginData;
 var loginOn = false;
 var homeTxt;
-var halfScreen = 633;
+var halfScreen;
+var link = new Array(50)
+var infoCreated = false;
+var pix;
 
 
 
@@ -72,11 +75,17 @@ function preload(){
 	header = loadImage('assets/gradeint9.jpg')
 	limitValues = loadTable('assets/pullution_limit.csv','csv','header')
 homeTxt = loadStrings("assets/home.txt")
-console.log(homeTxt)
+infoText1 = loadStrings("assets/infoAirZoom.txt")
+
 }
 
 function setup() {
-	createCanvas(windowWidth, windowHeight*3);
+
+	 pix = displayDensity()+0.015
+	console.log(pix)
+	createCanvas(displayWidth*pix, displayHeight*3);
+	halfScreen = width/2;
+console.log(halfScreen)
 
 let month = d.getMonth()
 let day = d.getDate();
@@ -92,7 +101,7 @@ sinupB.class('pipe')
 pipPosition=['1.2%','9%']
  b = selectAll('.pipe')
 for(let i = 0;i< b.length;i++){
-b[i].position((width-190)+(80*i),125);
+b[i].position((width-160)+(80*i),125);
 //b[i].style('left',pipPosition[i])
 b[i].style('width','6%');
 b[i].style('height','7%');
@@ -174,7 +183,7 @@ for(let i = 0; i< 20;i++){
 
 		for(let i= 0; i< m_prop.length;i++){
 	menue[i] = createButton(m_prop[i]);
-	menue[i].position(width-165,200+(i*50));
+	menue[i].position(width-140,200+(i*50));
 	menue[i].size(120,35);
 	menue[i].style('background-color','rgba(60,65,60,0.7)')
 	menue[i].style('border-width','0px')
@@ -214,26 +223,36 @@ this.style('color','orange')
 }
 
 function draw() {
-image(bg,0,0,width,height)
+image(bg,0,0,2278,height)
 image(header,0,0,width,120)
-fill(40);rect(0,120,width,50)
+
 textSize(28);fill(200);textAlign(CENTER)
-text("דף הבית",width/2,155)
-fill(190,40);noStroke(); rect(width-190,170,160,640)
+
+rectMode(CORNER)
+fill(40);rect(0,120,width,50)
+fill(190,40);noStroke(); rect(width-160,170,160,640)
 fill(255,165,20)
 textSize(45);
 text("airZoomIn",width/2,80)
 
 if(menuePos ==1){
-	fill(255,220),rect(250,190,700,600)
+	rectMode(CENTER)
+	fill(255,220);rect(halfScreen,height*0.25,700,600)
+	fill(220,180,20);textSize(26);text("דף הבית",halfScreen,155)
 	textSize(18);noStroke();textAlign(RIGHT);fill(0)
+
 	for(let i = 0;i< homeTxt.length;i++){
-		text(homeTxt[i],900,300+(i*30))
+		text(homeTxt[i],halfScreen*1.4,300+(i*30))
 	}
 }
 
-if(menuePos == 2){info();}
+if(menuePos == 2 ){info();}
+else if(menuePos != 2 && infoCreated == true){
+	link[0].remove()
+	link[1].remove()
 
+}
+//console.log(menuePos)
 if(menuePos == 3 && mapCreated == false){
 search();
 }else if(menuePos != 3){
