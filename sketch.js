@@ -83,7 +83,7 @@ function setup() {
 
 	 pix = displayDensity()+0.015
 	console.log(pix)
-	createCanvas(displayWidth*pix, displayHeight*3);
+	createCanvas(windowWidth*pix, displayHeight*3);
 	halfScreen = width/2;
 console.log(halfScreen)
 
